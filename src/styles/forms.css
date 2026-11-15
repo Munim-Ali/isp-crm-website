@@ -1,0 +1,48 @@
+@layer components {
+  .newsletter-row > *,
+  .newsletter-form,
+  .newsletter-form__input {
+    min-width: 0;
+  }
+  .newsletter-form {
+    width: 100%;
+  }
+  .contact-form .field-error {
+    display: block;
+    min-height: 16px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .contact-form .field input,
+  .contact-form .field select,
+  .contact-form .field textarea {
+    min-height: 47px;
+    font-size: var(--p-size);
+    padding: 13px 14px;
+  }
+  .contact-form .field > label {
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    line-height: var(--label-leading);
+  }
+  .contact-form .field {
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+  .contact-form .checkbox-label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .contact-form .field-error + .button {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .contact-form .field input,
+  .contact-form .field select,
+  .contact-form .field textarea,
+  .newsletter-form__input > input {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,29 @@
+flowchart TD
+    Env[.env.local / hosting environment] --> Config[src/config/site.ts · server only]
+    Config --> Layout[Root layout · Server Component]
+    Config --> Pages[Home / About / Contact · SSG]
+    Content[src/content/marketing.ts] --> Pages
+    Tokens[src/styles/theme.css] --> Styles[base / components / showcase / interactions / forms / pages CSS]
+    Styles --> Layout
+    Layout --> ContentContainers[Full-width layout + internally padded content containers]
+    Layout --> Header[Header + Footer · server]
+    Header --> Menu[Mobile menu · client]
+    Header --> Newsletter[Newsletter form · client]
+    Pages --> Reveal[Framer Motion wrapper · client]
+    Config --> Tabs[Five image tabs + Framer Motion crossfades · client]
+    Pages --> Tabs
+    Images[Five original SVG preview images] --> Tabs
+    Pages --> FAQ[Framer Motion height/opacity accordion · client]
+    Pages --> Scene[Deferred interactive 3D sculpture · client]
+    Pages --> Contact[Contact form · client]
+    Contact --> ContactAPI[POST /api/contact · Node]
+    Contact --> ClientZod[Inline Zod field validation]
+    Newsletter --> NewsletterAPI[POST /api/newsletter · Node]
+    ContactAPI --> Handler[origin + body cap + throttle + honeypot]
+    NewsletterAPI --> Handler
+    Handler --> Zod[Zod validation]
+    Zod --> Mail[Nodemailer · server only]
+    Env --> Mail
+    Mail --> SMTP[Configured SMTP relay]
+    SMTP --> Inboxes[Both MAIL_TO recipients]
+    Assets[public/images + public/fonts] --> Pages

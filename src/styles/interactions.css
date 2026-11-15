@@ -1,0 +1,184 @@
+@layer components {
+  .sculpture-stage {
+    position: relative;
+    height: 410px;
+    min-width: 0;
+  }
+  .connection-sculpture {
+    position: absolute;
+    inset: -30px -15px 0;
+    cursor: grab;
+    touch-action: pan-y;
+    border-radius: 20px;
+  }
+  .connection-sculpture:active {
+    cursor: grabbing;
+  }
+  .connection-sculpture canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  .sculpture-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transition: opacity 0.5s;
+  }
+  .connection-sculpture[data-ready="true"] .sculpture-fallback {
+    opacity: 0;
+  }
+  .sculpture-fallback > span {
+    width: 175px;
+    height: 175px;
+    border: 35px solid var(--brand);
+    border-radius: 42%;
+    transform: rotate(-30deg);
+    box-shadow:
+      inset 10px 7px 15px var(--brand),
+      12px 22px 40px color-mix(in srgb, var(--brand) 22%, transparent);
+    background: var(--brand-bg);
+  }
+  .sculpture-fallback > i {
+    position: absolute;
+    width: 290px;
+    height: 150px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+  }
+  .sculpture-fallback > b {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 27%;
+    left: 14%;
+    border-radius: 50%;
+    background: linear-gradient(130deg, var(--white), var(--brand-bg));
+    box-shadow: 4px 7px 15px color-mix(in srgb, var(--brand) 13%, transparent);
+  }
+  .sculpture-label {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border: 1px solid var(--white);
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--white) 73%, transparent);
+    color: var(--muted);
+    font-size: 10px;
+    box-shadow: 0 5px 20px color-mix(in srgb, var(--brand) 3%, transparent);
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+  }
+  .sculpture-label > span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+  }
+  .sculpture-label--one {
+    left: 1%;
+    top: 21%;
+  }
+  .sculpture-label--two {
+    right: -2%;
+    bottom: 28%;
+  }
+  .sculpture-caption {
+    position: absolute;
+    bottom: 31px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    pointer-events: none;
+  }
+  .sculpture-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--placeholder);
+    font-size: 9px;
+    pointer-events: none;
+  }
+  .faq-list--animated .faq-item {
+    padding: 0;
+    overflow-anchor: none;
+  }
+  .faq-list--animated .faq-item h3 {
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+  .faq-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 23px 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.7;
+    font-weight: 600;
+  }
+  .faq-trigger__icon {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--brand-bg);
+    color: var(--muted);
+  }
+  .faq-item--open .faq-trigger {
+    color: var(--brand);
+  }
+  .faq-item--open .faq-trigger__icon {
+    background: var(--brand-bg);
+    color: var(--brand);
+  }
+  .faq-answer {
+    overflow: hidden;
+    will-change: height;
+  }
+  .faq-answer__inner {
+    padding: 0 35px 24px 0;
+  }
+  .faq-answer__inner p {
+    font-size: var(--p-size);
+    line-height: var(--p-leading);
+  }
+}
+
+@media (max-width: 800px) {
+  .sculpture-stage {
+    height: 330px;
+  }
+  .sculpture-hint {
+    display: none;
+  }
+  .sculpture-label--two {
+    right: 0;
+  }
+  .faq-trigger {
+    font-size: 12px;
+  }
+  .faq-answer__inner p {
+    font-size: var(--span1-size);
+  }
+}

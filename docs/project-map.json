@@ -1,0 +1,55 @@
+{
+  "read_first": ["AGENTS.md", "docs/HANDOFF.md"],
+  "routes": {
+    "/": "src/app/page.tsx",
+    "/about": "src/app/about/page.tsx",
+    "/contact": "src/app/contact/page.tsx"
+  },
+  "configuration": {
+    "public": "src/config/site.ts",
+    "local": ".env.local (ignored)",
+    "template": ".env.example",
+    "theme": "src/styles/theme.css"
+  },
+  "content": "src/content/marketing.ts",
+  "ui": [
+    "src/components/ui",
+    "src/components/layout",
+    "src/components/sections"
+  ],
+  "client_boundaries": [
+    "src/components/motion",
+    "src/components/forms",
+    "src/components/product/product-showcase.tsx",
+    "src/components/layout/mobile-menu.tsx"
+  ],
+  "email_flow": [
+    "src/components/forms/use-submission.ts",
+    "src/app/api/contact/route.ts",
+    "src/app/api/newsletter/route.ts",
+    "src/lib/server/form-handler.ts",
+    "src/lib/validation.ts",
+    "src/lib/server/mail.ts"
+  ],
+  "styles": [
+    "src/styles/theme.css",
+    "src/styles/base.css",
+    "src/styles/components.css",
+    "src/styles/showcase.css",
+    "src/styles/interactions.css",
+    "src/styles/forms.css",
+    "src/styles/pages.css"
+  ],
+  "assets": "public/ASSETS.md",
+  "product_facts": "docs/PRODUCT.md",
+  "architecture": "docs/ARCHITECTURE.md",
+  "graph": "docs/architecture.mmd",
+  "development": "docs/DEVELOPMENT.md",
+  "constraints": [
+    "User runs servers; do not start them",
+    "No business location",
+    "Temporary brand and images",
+    "Never advertise unsupported product capabilities",
+    "No live CRM API connection"
+  ]
+}
